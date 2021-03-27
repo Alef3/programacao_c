@@ -1,8 +1,8 @@
 #include <stdio.h>
 
 #define HORAEMSEGUNDOS 3600
-#define MINUTO 60
-#define SEGUNDO 60
+#define MINUTOS 60
+#define SEGUNDOS 60
 
 
 int main() {
@@ -16,14 +16,14 @@ int main() {
     emHoras = N/HORAEMSEGUNDOS;
 
     //transformar em minutos
-    emMinutos = N/MINUTO;
+    emMinutos = N/MINUTOS;
 
-    while (emMinutos >= MINUTO){
-        emMinutos = emMinutos % MINUTO; // minuto precisa ser menor que 60, pois 60 é 1HR
+    if (emMinutos > MINUTOS){
+        emMinutos = emMinutos % MINUTOS; // minuto precisa ser menor que 60, pois 60 é 1HR
     }
 
     //subtrai as horas e os minutos (em segundos)
-    N = N - (emHoras * HORAEMSEGUNDOS + emMinutos * SEGUNDO);
+    N = N - (emHoras * HORAEMSEGUNDOS + emMinutos * SEGUNDOS);
 
     printf("%d:%d:%d\n", emHoras, emMinutos, N);
 
